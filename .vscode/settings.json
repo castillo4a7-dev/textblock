@@ -9,13 +9,10 @@
 		".vscode-insiders",
 		"**/test/**/*",
 		"**/.old/*",
-		"**/.wip/*",
 		"*.css",
 		"*.styles.ts"
 	],
-	"cSpell.words": [
-		"textblock"
-	],
+	"cSpell.words": ["postversion", "textblock"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
 		"source.organizeImports": "explicit"
