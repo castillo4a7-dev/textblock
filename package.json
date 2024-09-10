@@ -1,22 +1,30 @@
 {
 	"name": "textblock",
 	"version": "0.12.3",
+	"bugs": {
+		"url": "https://github.com/glyphic-co/textblock/issues"
+	},
 	"description": "A javascript tool for adjusting size, leading, and grades to cast continuously responsive typography.",
-	"main": "textblock.min.js",
-	"license": "MIT",
-	"README": "README.md",
-	"repository": "https://github.com/glyphic-co/textblock",
+	"homepage": "https://textblock.io",
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged"
 		}
 	},
+	"license": "MIT",
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write",
 		"./**/*.{js,ts}": [
 			"eslint"
 		]
 	},
+	"main": "textblock.min.js",
+	"publishConfig": {
+		"access": "public",
+		"@glyphic:registry": "https://registry.npmjs.org"
+	},
+	"repository": "https://github.com/glyphic-co/textblock",
+	"README": "README.md",
 	"scripts": {
 		"build": "grunt",
 		"changeset": "changeset",
@@ -26,6 +34,7 @@
 		"postversion": "node -e \"const pkg = require('./package.json'); require('child_process').execSync('git tag v' + pkg.version);\" || echo 'Tag already exists. Skipping...'",
 		"pre-commit": "lint-staged",
 		"prepare": "husky",
+		"release": "changeset publish",
 		"start": "grunt watch",
 		"tc": "tsc --noEmit",
 		"version": "changeset version"
