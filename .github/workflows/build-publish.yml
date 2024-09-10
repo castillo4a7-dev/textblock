@@ -1,0 +1,61 @@
+name: Build & Publish
+on:
+    push:
+        branches: "**"
+    pull_request:
+        types: [closed]
+        branches: [development, master]
+        paths-ignore:
+            - "**/*"
+env:
+    HUSKY: "0"
+jobs:
+    set-environment:
+        runs-on: ubuntu-latest
+        outputs:
+            deploy_env: ${{ steps.bootstrap-env.outputs.deploy_env }}
+            grf_version: ${{ steps.bootstrap-env.outputs.grf_version }}
+            target_branch: ${{ steps.bootstrap-env.outputs.target_branch }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - name: Bootstrap Environment
+              id: bootstrap-env
+              run: |
+                  TARGET_BRANCH=${{ github.event.pull_request.base.ref || github.ref_name }}
+                  echo "::set-output name=target_branch::$TARGET_BRANCH"
+                  echo "TARGET_BRANCH=$TARGET_BRANCH" >> $GITHUB_ENV
+
+                  GRF_VERSION=$(node -p "require('./package.json').version")
+                  echo "::set-output name=grf_version::$GRF_VERSION"
+                  echo "GRF_VERSION=$GRF_VERSION" >> $GITHUB_ENV
+
+                  if [[ "$TARGET_BRANCH" == "main" ]]; then
+                    echo "::set-output name=deploy_env::Production"
+                    echo "DEPLOY_ENV=Production" >> $GITHUB_ENV
+                  else
+                    echo "::set-output name=deploy_env::Preview"
+                    echo "DEPLOY_ENV=Dev" >> $GITHUB_ENV
+                  fi
+            - name: Inspect Environment
+              run: |
+                  echo "GRF_VERSION: $GRF_VERSION"
+                  echo "TARGET_BRANCH: $TARGET_BRANCH"
+    build:
+        runs-on: ubuntu-latest
+        if: ${{ (github.event_name != 'pull_request' || github.event.pull_request.merged) }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - name: Build
+              run: |
+                  npm install
+                  npm run build
