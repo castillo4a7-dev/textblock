@@ -12,7 +12,11 @@
 		}
 	},
 	"lint-staged": {
-		"*.js": [
+		"*": "prettier --ignore-unknown --write",
+		"./**/*.css": [
+			"npx stylelint '**/*.css'"
+		],
+		"./**/*.{js,ts}": [
 			"eslint --fix",
 			"git add"
 		]
@@ -21,7 +25,11 @@
 		"build": "grunt",
 		"clean": "rm -rf coverage node_modules package-lock.json && npm cache clean --force",
 		"format": "prettier . --ignore-unknown --write",
-		"start": "grunt watch"
+		"lint": "eslint",
+		"pre-commit": "lint-staged",
+		"prepare": "husky",
+		"start": "grunt watch",
+		"tc": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"eslint": "^6.1.0",
@@ -30,8 +38,8 @@
 		"grunt": "^1.0.4",
 		"grunt-contrib-uglify": "^4.0.1",
 		"grunt-contrib-watch": "^1.1.0",
-		"husky": "^3.0.2",
-		"lint-staged": "^9.2.1",
+		"husky": "^9.1.5",
+		"lint-staged": "^15.2.10",
 		"prettier": "^3.3.3"
 	}
 }
