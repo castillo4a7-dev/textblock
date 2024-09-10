@@ -2,6 +2,7 @@
 *.tsbuildinfo
 *.d.ts
 *.pem
+*.tgz
 .data
 .DS_Store
 .env

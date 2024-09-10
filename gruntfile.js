@@ -1,7 +1,6 @@
 module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
-
 		uglify: {
 			textblock: {
 				files: {
@@ -9,7 +8,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
 		watch: {
 			scripts: {
 				files: ["src/demo.html", "src/demo.css", "src/textblock.js"],
@@ -17,9 +15,7 @@ module.exports = function (grunt) {
 			}
 		}
 	});
-
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-contrib-uglify");
-
 	grunt.registerTask("default", ["uglify:textblock"]);
 };
