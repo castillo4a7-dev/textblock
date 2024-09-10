@@ -3,12 +3,12 @@ module.exports = {
 		browser: true
 	},
 	extends: ["eslint:recommended"],
-	ignorePatterns: [".eslintrc.js", "*.min.*", ".old", "dist"],
+	ignorePatterns: ["!.*.js", ".eslintrc.js", "*.min.*", ".old", "dist", "webpack.config.js"],
 	parser: "@typescript-eslint/parser",
 	plugins: ["@typescript-eslint", "import"],
 	overrides: [
 		{
-			files: ["**/*.ts", "**/*.js"],
+			files: ["**/*.ts"],
 			extends: [
 				"plugin:@typescript-eslint/recommended",
 				"plugin:@typescript-eslint/recommended-requiring-type-checking"
@@ -30,6 +30,14 @@ module.exports = {
 					}
 				]
 			}
+		},
+		{
+			files: ["**/*.js"],
+			parser: "espree",
+			parserOptions: {
+				ecmaVersion: 2020
+			},
+			rules: {}
 		}
 	],
 	parserOptions: {

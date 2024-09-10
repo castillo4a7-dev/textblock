@@ -32,7 +32,8 @@
 		"@glyphic:registry": "https://registry.npmjs.org"
 	},
 	"scripts": {
-		"build": "rm -rf dist && tsc",
+		"build": "rm -rf dist && webpack",
+		"build:dev": "rm -rf dist && webpack --mode development",
 		"changeset": "changeset",
 		"clean": "rm -rf coverage node_modules package-lock.json && npm cache clean --force",
 		"format": "prettier . --ignore-unknown --write",
@@ -41,9 +42,9 @@
 		"pre-commit": "lint-staged",
 		"prepare": "husky",
 		"release": "npm run build && changeset publish && git push --follow-tags",
-		"start": "grunt watch",
 		"tc": "tsc --noEmit",
-		"version": "changeset version"
+		"version": "changeset version",
+		"watch": "webpack --watch"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "^0.5.0",
@@ -55,13 +56,14 @@
 		"eslint": "^8.57.0",
 		"eslint-import-resolver-typescript": "^3.6.3",
 		"eslint-plugin-import": "^2.29.1",
-		"grunt": "^1.0.4",
-		"grunt-contrib-uglify": "^4.0.1",
-		"grunt-contrib-watch": "^1.1.0",
 		"husky": "^9.1.5",
 		"lint-staged": "^15.2.10",
 		"prettier": "^3.3.3",
+		"terser-webpack-plugin": "^5.3.10",
+		"ts-loader": "^9.5.1",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.6.2"
+		"typescript": "^5.6.2",
+		"webpack": "^5.94.0",
+		"webpack-cli": "^5.1.4"
 	}
 }

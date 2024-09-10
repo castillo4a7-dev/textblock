@@ -8,6 +8,5 @@
 !*.d.ts
 node_modules/*
 src/
-gruntfile.js
 src
 tsconfig.json
