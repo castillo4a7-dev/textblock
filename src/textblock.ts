@@ -1,10 +1,10 @@
 // default settings for blocks
 export const DefaultContainer = "parent";
-export const DefaultFontMinWidth = 1.0;
-export const DefaultFontMaxWidth = 1.8;
-export const DefaultFontUnits = "em";
-export const DefaultLineMinWidth = 1.33;
-export const DefaultLineMaxWidth = 1.25;
+export const DefaultFontSizeMinWidth = 1.0;
+export const DefaultFontSizeMaxWidth = 1.8;
+export const DefaultFontSizeUnits = "em";
+export const DefaultLineHeightMinWidth = 1.33;
+export const DefaultLineHeightMaxWidth = 1.25;
 export const DefaultMinWidth = 320;
 export const DefaultMaxWidth = 960;
 
@@ -17,14 +17,16 @@ export interface TextblockOptions {
 // represents an element that will be targeted
 export interface TextblockTarget {
 	container?: "parent" | "self";
-	fontMinWidth?: number;
-	fontMaxWidth?: number;
-	fontUnits?: "em" | "pt" | "px" | "rem";
-	lineMinWidth?: number;
-	lineMaxWidth?: number;
+	fontSizeMinWidth?: number;
+	fontSizeMaxWidth?: number;
+	fontSizeUnits?: "em" | "pt" | "px" | "rem";
+	lineHeightMinWidth?: number;
+	lineHeightMaxWidth?: number;
 	minWidth?: number;
 	maxWidth?: number;
 	target: string;
+	variableGradeMaxWidth?: number;
+	variableGradeMinWidth?: number;
 }
 
 // textblock entrypoint
@@ -75,10 +77,11 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 			debug && console.debug(`[Textblock] Found ${elements.length} elements matching the ${b.target} selector.`);
 
 			elements.forEach((e) => {
-				const measurements = calculateTypographyMeasurements(b, e);
-				if (measurements) {
-					e.style.fontSize = `${measurements.fontSize}${b.fontUnits}`;
-					e.style.lineHeight = `${measurements.lineHeight}`;
+				const measures = calculateTypographyMeasurements(b, e);
+				if (measures) {
+					e.style.fontSize = `${measures.fontSize}${b.fontSizeUnits}`;
+					e.style.lineHeight = `${measures.lineHeight}`;
+					measures.fontVariationSettings && (e.style.fontVariationSettings = measures.fontVariationSettings);
 				}
 			});
 		});
@@ -125,21 +128,25 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 
 		const {
 			container = DefaultContainer,
-			fontMaxWidth = DefaultFontMaxWidth,
-			fontMinWidth = DefaultFontMinWidth,
-			lineMaxWidth = DefaultLineMaxWidth,
-			lineMinWidth = DefaultLineMinWidth,
+			fontSizeMaxWidth: fontMaxWidth = DefaultFontSizeMaxWidth,
+			fontSizeMinWidth: fontMinWidth = DefaultFontSizeMinWidth,
+			lineHeightMaxWidth: lineMaxWidth = DefaultLineHeightMaxWidth,
+			lineHeightMinWidth: lineMinWidth = DefaultLineHeightMinWidth,
 			maxWidth = DefaultMaxWidth,
-			minWidth = DefaultMinWidth
+			minWidth = DefaultMinWidth,
+			variableGradeMaxWidth: vgMax,
+			variableGradeMinWidth: vgMin
 		} = block;
 
 		const width = container === "self" ? calculateElementWidth(element) : calculateElementWidth(element.parentNode);
 		const capped = Math.min(Math.max(width, minWidth), maxWidth); // caps container width to minWidth x maxWidth
 		const widthRatio = (capped - minWidth) / (maxWidth - minWidth);
+		const grade = vgMax && vgMin ? scaleInRange(vgMin, vgMax, widthRatio) : undefined;
 
 		return {
 			fontSize: scaleInRange(fontMinWidth, fontMaxWidth, widthRatio),
-			lineHeight: scaleInRange(lineMinWidth, lineMaxWidth, widthRatio)
+			lineHeight: scaleInRange(lineMinWidth, lineMaxWidth, widthRatio),
+			fontVariationSettings: grade ? `"wght" ${grade}` : undefined
 		};
 	}
 
