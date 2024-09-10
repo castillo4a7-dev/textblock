@@ -13,12 +13,8 @@
 	},
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write",
-		"./**/*.css": [
-			"npx stylelint '**/*.css'"
-		],
 		"./**/*.{js,ts}": [
-			"eslint --fix",
-			"git add"
+			"eslint"
 		]
 	},
 	"scripts": {
