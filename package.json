@@ -1,35 +1,37 @@
 {
-  "name": "textblock",
-  "version": "0.12.3",
-  "description": "A javascript tool for adjusting size, leading, and grades to cast continuously responsive typography.",
-  "main": "textblock.min.js",
-  "license": "MIT",
-  "README": "README.md",
-  "repository": "https://github.com/glyphic-co/textblock",
-  "scripts": {
-    "start": "grunt watch",
-    "build": "grunt"
-  },
-  "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "grunt": "^1.0.4",
-    "grunt-contrib-uglify": "^4.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "husky": "^3.0.2",
-    "lint-staged": "^9.2.1",
-    "prettier": "^1.17.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
-  }
+	"name": "textblock",
+	"version": "0.12.3",
+	"description": "A javascript tool for adjusting size, leading, and grades to cast continuously responsive typography.",
+	"main": "textblock.min.js",
+	"license": "MIT",
+	"README": "README.md",
+	"repository": "https://github.com/glyphic-co/textblock",
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": [
+			"eslint --fix",
+			"git add"
+		]
+	},
+	"scripts": {
+		"build": "grunt",
+		"clean": "rm -rf coverage node_modules package-lock.json && npm cache clean --force",
+		"format": "prettier . --ignore-unknown --write",
+		"start": "grunt watch"
+	},
+	"devDependencies": {
+		"eslint": "^6.1.0",
+		"eslint-config-prettier": "^6.0.0",
+		"eslint-plugin-prettier": "^3.1.0",
+		"grunt": "^1.0.4",
+		"grunt-contrib-uglify": "^4.0.1",
+		"grunt-contrib-watch": "^1.1.0",
+		"husky": "^3.0.2",
+		"lint-staged": "^9.2.1",
+		"prettier": "^3.3.3"
+	}
 }
