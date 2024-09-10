@@ -31,6 +31,6 @@
 		"target": "ES5",
 		"typeRoots": ["./node_modules/@types"]
 	},
-	"exclude": ["dist", "node_modules", "**/*.min.*", "**/.old", "**/*.tgz"],
+	"exclude": ["demo", "dist", "node_modules", "**/*.min.*", "**/.old", "**/*.tgz"],
 	"include": ["**/*.ts"]
 }

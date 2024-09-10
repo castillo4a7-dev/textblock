@@ -6,7 +6,7 @@
 *.tgz
 *.ts
 !*.d.ts
-node_modules/*
-src/
+demo
+node_modules
 src
 tsconfig.json
