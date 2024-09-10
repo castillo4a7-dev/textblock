@@ -29,6 +29,6 @@
 		"target": "ES6",
 		"typeRoots": ["./node_modules/@types"]
 	},
-	"exclude": ["node_modules", "**/.old"],
+	"exclude": ["node_modules", "**/*.min.*", "**/.old"],
 	"include": ["**/*.ts", "**/*.js"]
 }

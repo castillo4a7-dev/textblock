@@ -3,7 +3,7 @@ module.exports = {
 		browser: true
 	},
 	extends: ["eslint:recommended"],
-	ignorePatterns: [".eslintrc.js", ".old", "dist"],
+	ignorePatterns: [".eslintrc.js", "*.min.*", ".old", "dist"],
 	parser: "@typescript-eslint/parser",
 	plugins: ["@typescript-eslint", "import"],
 	overrides: [

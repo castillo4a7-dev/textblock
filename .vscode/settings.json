@@ -8,6 +8,7 @@
 		".vscode",
 		".vscode-insiders",
 		"**/test/**/*",
+		"**/.min/*",
 		"**/.old/*",
 		"*.css",
 		"*.styles.ts"
