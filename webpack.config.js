@@ -2,6 +2,8 @@
 // JSON Schema: https://json.schemastore.org/webpack
 
 const TerserPlugin = require("terser-webpack-plugin");
+const { version } = require("./package.json");
+const webpack = require("webpack");
 
 module.exports = (env, argv) => {
 	return {
@@ -26,6 +28,11 @@ module.exports = (env, argv) => {
 		output: {
 			filename: "textblock.min.js",
 			path: __dirname + "/dist"
-		}
+		},
+		plugins: [
+			new webpack.DefinePlugin({
+				TB_VERSION: JSON.stringify(version)
+			})
+		]
 	};
 };

@@ -146,6 +146,8 @@ export interface TextblockTarget {
  * additional configurations.
  */
 export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions) => {
+	console.log(`[TB] Textblock v${TB_VERSION || "🤔"}`);
+
 	const { debounce = 200, debug = false } = options || ({} as TextblockOptions);
 
 	if (typeof window !== "undefined") {
