@@ -6,7 +6,7 @@ Thanks for helping us keep open source endurance safe for everyone ✨✨
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 0.0.x   | :white_check_mark: |
+| 1.x.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
