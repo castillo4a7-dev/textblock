@@ -4,21 +4,34 @@
 
 ### Major Changes
 
--   Nucear refactor -> migrate to Typescript; migrate to webpack; settings and housekeeping
+-   Nuclear refactor:
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-_Types of changes_
-
--   **Added** for new features.
--   **Changed** for changes in existing functionality.
--   **Deprecated** for soon-to-be removed features.
--   **Removed** for now removed features.
--   **Fixed** for any bug fixes.
--   **Security** in case of vulnerabilities.
+    -   Refactored to Typescript
+    -   Renamed props, vars, and methods for clarity
+    -   Added debug output support (fixes #47, #57)
+    -   Added a debounce method for the resize() event handler to improve performance
+    -   Return event cancelation handles to address memory leaks in SPAs (helps with #37)
+    -   Added configuration props (debug and debounce) with some reasonable defaults
+    -   Removed support for legacy parameter names
+    -   Removed support for ancient IE versions (many of those methods are no longer in the web API)
+    -   Adjust Husky config
+    -   Adjust prettier config
+    -   Adjust eslint config
+    -   Introduce Changesets for versioning
+    -   Add some settings for folks using VSCode
+    -   Replace grunt with webpack
+    -   Exclude build artifacts from repo (more on this below); output dir is now `./dist`
+    -   Output TS type definitions and sourcemap
+    -   Target modern JS
+    -   Bumped dependency versions
+    -   Added a Dependabot build file for dependency PR grouping
+    -   Moved demo files out of the source root (now in /demo)
+    -   Pointed the demo to @latest on unpkg
+    -   Introduce SECURITY.MD
+    -   Update param names in the demo HTML
+    -   Added JSDocs (ChatGPT generated)
+    -   Miscellaneous housekeeping
+    -   Version bump
 
 ---
 
