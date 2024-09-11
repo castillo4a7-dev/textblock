@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+-   Fix entrypoint
+
 ## 1.0.0
 
 ### Major Changes
