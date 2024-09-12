@@ -148,25 +148,24 @@ export interface TextblockTarget {
 export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions) => {
 	console.log(`[TB] Textblock v${TB_VERSION || "🤔"}`);
 
-	const { debounce = 200, debug = false } = options || ({} as TextblockOptions);
-
-	if (typeof window !== "undefined") {
-		const cancelHandles = onDocumentReady(() => {
-			onLoad(blocks);
-			return onResize(debounceCallback(() => onLoad(blocks), debounce));
-		});
-		return () => {
-			if (typeof cancelHandles === "function") {
-				cancelHandles();
-			}
-		};
-	} else {
+	if (typeof window === "undefined" || typeof document === "undefined") {
 		console.error(
 			"[Textblock] A valid DOM is required. If you're using SSR, be sure to initialize Textblock on the client."
 		);
-
 		return null;
 	}
+
+	const { debounce = 200, debug = false } = options || ({} as TextblockOptions);
+	const cancelHandles = onDocumentReady(() => {
+		onLoad(blocks);
+		return onResize(debounceCallback(() => onLoad(blocks), debounce));
+	});
+
+	return () => {
+		if (typeof cancelHandles === "function") {
+			cancelHandles();
+		}
+	};
 
 	/**
 	 * Executes a callback function once the document is fully loaded. If the
