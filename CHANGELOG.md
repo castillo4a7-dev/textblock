@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.2
+
+### Patch Changes
+
+-   fix module export and improve CSR handling for non-browser environments
+
 ## 1.0.1
 
 ### Patch Changes
