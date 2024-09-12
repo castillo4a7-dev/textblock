@@ -150,7 +150,7 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 
 	if (typeof window === "undefined" || typeof document === "undefined") {
 		console.error(
-			"[Textblock] A valid DOM is required. If you're using SSR, be sure to initialize Textblock on the client."
+			"[TB] A valid DOM is required. If you're using SSR, be sure to initialize Textblock on the client."
 		);
 		return null;
 	}
@@ -198,7 +198,7 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 	 */
 	function onLoad(blocks: TextblockTarget[]) {
 		if (blocks.length === 0) {
-			debug && console.debug("[Textblock] No blocks were provided. Are you sure your configuration is correct?");
+			debug && console.debug("[TB] No blocks were provided. Are you sure your configuration is correct?");
 			return;
 		}
 
@@ -207,7 +207,7 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 				(el): el is HTMLElement => el instanceof HTMLElement
 			);
 
-			debug && console.debug(`[Textblock] Found ${elements.length} elements matching the ${b.target} selector.`);
+			debug && console.debug(`[TB] Found ${elements.length} elements matching the ${b.target} selector.`);
 
 			elements.forEach((e) => {
 				const measures = calculateTypographyMeasurements(b, e);
@@ -234,7 +234,7 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 	 */
 	function onResize(callback: (blocks: TextblockTarget[]) => void) {
 		if (blocks.length === 0) {
-			debug && console.debug("[Textblock] No blocks were provided. Are you sure your configuration is correct?");
+			debug && console.debug("[TB] No blocks were provided. Are you sure your configuration is correct?");
 			return;
 		}
 
