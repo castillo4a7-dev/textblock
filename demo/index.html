@@ -57,23 +57,23 @@
 					target: "#legacy-params-0-9-9",
 					minWidth: 400,
 					maxWidth: 800,
-					minFontSize: 1.8,
-					maxFontSize: 2.4,
-					minLineHeight: 2,
-					maxLineHeight: 1,
-					minVariableGrade: 490,
+					minFontSize: 1.6,
+					maxFontSize: 2.0,
+					minLineHeight: 1.5,
+					maxLineHeight: 1.2,
+					minVariableGrade: 425,
 					maxVariableGrade: 400
 				},
 				{
 					target: "#legacy-params-0-10-0",
 					minWidth: 400,
 					maxWidth: 800,
-					minWidthFontSize: 2.4,
-					maxWidthFontSize: 1.8,
-					minWidthLineHeight: 1.2,
+					minWidthFontSize: 1.6,
+					maxWidthFontSize: 2.0,
+					minWidthLineHeight: 1.5,
 					maxWidthLineHeight: 1.2,
-					minWidthVariableGrade: 400,
-					maxWidthVariableGrade: 490
+					minWidthVariableGrade: 425,
+					maxWidthVariableGrade: 400
 				}
 			]);
 		</script>
@@ -100,6 +100,9 @@
 			}
 			#legacy-params-0-10-0 td {
 				border-top: 1px solid lightgray;
+			}
+			#parameters {
+				width: 100%;
 			}
 		</style>
 	</head>
@@ -132,19 +135,19 @@
 
 				<div id="legacy-params-0-9-9">
 					<p>
-						With legacy parameter names from v0.9.9 — Textblock adjusts size, leading, and grades to cast
-						continuously responsive type. It works over your current CSS as a progressive enhancement. Some
-						parameter names have changed:
+						<u>With legacy parameter names from v0.9.9</u> — Textblock adjusts size, leading, and grades to
+						cast continuously responsive type. It works over your current CSS as a progressive enhancement.
+						Some parameter names have changed:
 					</p>
 				</div>
 
 				<div id="legacy-params-0-10-0">
 					<p>
-						With legacy parameter names from v0.10.0 — Textblock adjusts size, leading, and grades to cast
-						continuously responsive type. It works over your current CSS as a progressive enhancement. Some
-						parameter names have changed:
+						<u>With legacy parameter names from v0.10.0</u> — Textblock adjusts size, leading, and grades to
+						cast continuously responsive type. It works over your current CSS as a progressive enhancement.
+						Some parameter names have changed:
 					</p>
-					<table>
+					<table id="parameters">
 						<thead>
 							<tr>
 								<th>v0.9.9</th>
@@ -168,7 +171,7 @@
 							</tr>
 							<tr>
 								<td><code>units</code></td>
-								<td><code></code></td>
+								<td><code>units</code></td>
 								<td><code>fontSize_Units</code></td>
 								<td><code>fontSizeUnits</code></td>
 							</tr>
