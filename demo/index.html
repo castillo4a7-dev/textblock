@@ -43,7 +43,7 @@
 					container: "self"
 				},
 				{
-					target: ".mars",
+					target: "#mars",
 					minWidth: 400,
 					maxWidth: 800,
 					minWidth_FontSize: 4,
@@ -74,6 +74,18 @@
 					maxWidthLineHeight: 1.2,
 					minWidthVariableGrade: 425,
 					maxWidthVariableGrade: 400
+				},
+				{
+					target: "#parameters",
+					minWidth: 800,
+					maxWidth: 1024,
+					fontSize_MinWidth: 1.8,
+					fontSize_MaxWidth: 1.8,
+					lineHeight_MinWidth: 1,
+					lineHeight_MaxWidth: 1,
+					variableGrade_MinWidth: 425,
+					variableGrade_MaxWidth: 400,
+					container: "parent"
 				}
 			]);
 		</script>
@@ -83,27 +95,28 @@
 			#legacy-params-0-10-0 {
 				margin-top: 1em;
 			}
-			#legacy-params-0-10-0 table {
-				margin: 1em 0;
-				font-size: 0.875em;
-			}
-			#legacy-params-0-10-0 code {
-				font-family: Courier, monospace;
-				font-size: 0.875em;
-			}
-			#legacy-params-0-10-0 th {
-				font-weight: bold;
-			}
-			#legacy-params-0-10-0 th,
-			#legacy-params-0-10-0 td {
-				padding: 0.5em 2em 0.5em 0;
-			}
-			#legacy-params-0-10-0 td {
-				border-top: 1px solid lightgray;
-			}
 			#parameters {
 				width: 100%;
-				padding-top: 2em;
+				padding-top: 3em;
+				padding-bottom: 2em;
+			}
+			#parameters th,
+			#parameters td {
+				padding: 0.5em 2em 0.5em 0.5em;
+			}
+			#parameters td {
+				border-top: 1px solid lightgray;
+			}
+			#parameters th {
+				font-weight: bold;
+			}
+			#parameters td.latest,
+			#parameters td.latest {
+				color: #000;
+			}
+			#parameters th:not(.latest),
+			#parameters td:not(.latest) {
+				color: #9e9e9e;
 			}
 		</style>
 	</head>
@@ -126,14 +139,6 @@
 					</p>
 				</div>
 
-				<div class="mars" style="margin-top: 2em">
-					<p>
-						With font-size inversely related to container width, and variable weight and line-height
-						directly related — Textblock adjusts size, leading, and grades to cast continuously responsive
-						type. It works over your current CSS as a progressive enhancement.
-					</p>
-				</div>
-
 				<div id="legacy-params-0-9-9">
 					<p>
 						<u>With legacy parameter names from v0.9.9</u> — Textblock adjusts size, leading, and grades to
@@ -148,60 +153,92 @@
 						cast continuously responsive type. It works over your current CSS as a progressive enhancement.
 						Some parameter names have changed:
 					</p>
-					<table id="parameters">
-						<thead>
-							<tr>
-								<th>v0.9.9</th>
-								<th>v0.10.0</th>
-								<th>v0.12.0</th>
-								<th>latest</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><code>minFontSize</code></td>
-								<td><code>minWidthFontSize</code></td>
-								<td><code>minWidth_FontSize</code></td>
-								<td><code>fontSizeMinWidth</code></td>
-							</tr>
-							<tr>
-								<td><code>maxFontSize</code></td>
-								<td><code>maxWidthFontSize</code></td>
-								<td><code>maxWidth_FontSize</code></td>
-								<td><code>fontSizeMaxWidth</code></td>
-							</tr>
-							<tr>
-								<td><code>units</code></td>
-								<td><code>units</code></td>
-								<td><code>fontSize_Units</code></td>
-								<td><code>fontSizeUnits</code></td>
-							</tr>
-							<tr>
-								<td><code>minLineHeight</code></td>
-								<td><code>minWidthLineHeight</code></td>
-								<td><code>minWidth_LineHeight</code></td>
-								<td><code>lineHeightMinWidth</code></td>
-							</tr>
-							<tr>
-								<td><code>maxLineHeight</code></td>
-								<td><code>maxWidthLineHeight</code></td>
-								<td><code>maxWidth_LineHeight</code></td>
-								<td><code>lineHeightMaxWidth</code></td>
-							</tr>
-							<tr>
-								<td><code>minVariableGrade</code></td>
-								<td><code>minWidthVariableGrade</code></td>
-								<td><code>minWidth_VariableGrade</code></td>
-								<td><code>variableGradeMinWidth</code></td>
-							</tr>
-							<tr>
-								<td><code>maxVariableGrade</code></td>
-								<td><code>maxWidthVariableGrade</code></td>
-								<td><code>maxWidth_VariableGrade</code></td>
-								<td><code>variableGradeMaxWidth</code></td>
-							</tr>
-						</tbody>
-					</table>
+				</div>
+				<table id="parameters">
+					<thead>
+						<tr>
+							<th class="latest">Latest — v1.x</th>
+							<th>v0.12.0 (legacy)</th>
+							<th>v0.10.0 (legacy)</th>
+							<th>v0.9.9 (legacy)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="latest">target</td>
+							<td>target</td>
+							<td>target</td>
+							<td>target</td>
+						</tr>
+						<tr>
+							<td class="latest">minWidth</td>
+							<td>minWidth</td>
+							<td>minWidth</td>
+							<td>minWidth</td>
+						</tr>
+						<tr>
+							<td class="latest">maxWidth</td>
+							<td>maxWidth</td>
+							<td>maxWidth</td>
+							<td>maxWidth</td>
+						</tr>
+						<tr>
+							<td class="latest">fontSize_MinWidth</td>
+							<td>minWidth_FontSize</td>
+							<td>minWidthFontSize</td>
+							<td>minFontSize</td>
+						</tr>
+						<tr>
+							<td class="latest">fontSize_MaxWidth</td>
+							<td>maxWidth_FontSize</td>
+							<td>maxWidthFontSize</td>
+							<td>maxFontSize</td>
+						</tr>
+						<tr>
+							<td class="latest">fontSize_Units</td>
+							<td>fontSize_Units</td>
+							<td>units</td>
+							<td>units</td>
+						</tr>
+						<tr>
+							<td class="latest">lineHeight_MinWidth</td>
+							<td>minWidth_LineHeight</td>
+							<td>minWidthLineHeight</td>
+							<td>minLineHeight</td>
+						</tr>
+						<tr>
+							<td class="latest">lineHeight_MaxWidth</td>
+							<td>maxWidth_LineHeight</td>
+							<td>maxWidthLineHeight</td>
+							<td>maxLineHeight</td>
+						</tr>
+						<tr>
+							<td class="latest">variableGrade_MinWidth</td>
+							<td>minWidth_VariableGrade</td>
+							<td>minWidthVariableGrade</td>
+							<td>minVariableGrade</td>
+						</tr>
+						<tr>
+							<td class="latest">variableGrade_MaxWidth</td>
+							<td>maxWidth_VariableGrade</td>
+							<td>maxWidthVariableGrade</td>
+							<td>maxVariableGrade</td>
+						</tr>
+						<tr>
+							<td class="latest">container</td>
+							<td>container</td>
+							<td>container</td>
+							<td>container</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<div id="mars" style="margin-top: 2em">
+					<p>
+						With font-size inversely related to container width, and variable weight and line-height
+						directly related — Textblock adjusts size, leading, and grades to cast continuously responsive
+						type. It works over your current CSS as a progressive enhancement.
+					</p>
 				</div>
 			</div>
 		</div>

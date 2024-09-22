@@ -8,31 +8,31 @@ export const DefaultContainer = "parent";
  * The default minimum font size scaling width, which sets the lower bound for
  * scaling font sizes based on element or container width.
  */
-export const DefaultFontSizeMinWidth = 1.0;
+export const DefaultfontSize_MinWidth = 1.0;
 
 /**
  * The default maximum font size scaling width, which sets the upper bound for
  * scaling font sizes based on element or container width.
  */
-export const DefaultFontSizeMaxWidth = 1.8;
+export const DefaultfontSize_MaxWidth = 1.8;
 
 /**
  * The default unit for font size calculations. Options include "em", "pt",
  * "px", and "rem". The default is "em".
  */
-export const DefaultFontSizeUnits = "em";
+export const DefaultfontSize_Units = "em";
 
 /**
  * The default minimum line height scaling width, which sets the lower bound
  * for scaling line heights based on element or container width.
  */
-export const DefaultLineHeightMinWidth = 1.33;
+export const DefaultlineHeight_MinWidth = 1.33;
 
 /**
  * The default maximum line height scaling width, which sets the upper bound
  * for scaling line heights based on element or container width.
  */
-export const DefaultLineHeightMaxWidth = 1.25;
+export const DefaultlineHeight_MaxWidth = 1.25;
 
 /**
  * The default minimum width of the element or container for scaling
@@ -83,27 +83,27 @@ export interface TextblockTarget {
 	/**
 	 * The minimum width at which the font size scaling starts.
 	 */
-	fontSizeMinWidth?: number;
+	fontSize_MinWidth?: number;
 
 	/**
 	 * The maximum width at which the font size scaling ends.
 	 */
-	fontSizeMaxWidth?: number;
+	fontSize_MaxWidth?: number;
 
 	/**
 	 * The units to use for font size. Default is "px".
 	 */
-	fontSizeUnits?: "em" | "pt" | "px" | "rem";
+	fontSize_Units?: "em" | "pt" | "px" | "rem";
 
 	/**
 	 * The minimum width at which the line height scaling starts.
 	 */
-	lineHeightMinWidth?: number;
+	lineHeight_MinWidth?: number;
 
 	/**
 	 * The maximum width at which the line height scaling ends.
 	 */
-	lineHeightMaxWidth?: number;
+	lineHeight_MaxWidth?: number;
 
 	/**
 	 * The minimum width of the element or container for scaling calculations.
@@ -124,13 +124,13 @@ export interface TextblockTarget {
 	 * The maximum width at which variable grade scaling should be applied, if
 	 * applicable.
 	 */
-	variableGradeMaxWidth?: number;
+	variableGrade_MaxWidth?: number;
 
 	/**
 	 * The minimum width at which variable grade scaling should be applied, if
 	 * applicable.
 	 */
-	variableGradeMinWidth?: number;
+	variableGrade_MinWidth?: number;
 }
 
 /**
@@ -212,7 +212,7 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 			elements.forEach((e) => {
 				const measures = calculateTypographyMeasurements(b, e);
 				if (measures) {
-					e.style.fontSize = `${measures.fontSize}${b.fontSizeUnits}`;
+					e.style.fontSize = `${measures.fontSize}${b.fontSize_Units}`;
 					e.style.lineHeight = `${measures.lineHeight}`;
 					measures.fontVariationSettings && (e.style.fontVariationSettings = measures.fontVariationSettings);
 				}
@@ -306,14 +306,14 @@ export const Textblock = (blocks: TextblockTarget[], options?: TextblockOptions)
 
 		const {
 			container = DefaultContainer,
-			fontSizeMaxWidth: fontMaxWidth = DefaultFontSizeMaxWidth,
-			fontSizeMinWidth: fontMinWidth = DefaultFontSizeMinWidth,
-			lineHeightMaxWidth: lineMaxWidth = DefaultLineHeightMaxWidth,
-			lineHeightMinWidth: lineMinWidth = DefaultLineHeightMinWidth,
+			fontSize_MaxWidth: fontMaxWidth = DefaultfontSize_MaxWidth,
+			fontSize_MinWidth: fontMinWidth = DefaultfontSize_MinWidth,
+			lineHeight_MaxWidth: lineMaxWidth = DefaultlineHeight_MaxWidth,
+			lineHeight_MinWidth: lineMinWidth = DefaultlineHeight_MinWidth,
 			maxWidth = DefaultMaxWidth,
 			minWidth = DefaultMinWidth,
-			variableGradeMaxWidth: vgMax,
-			variableGradeMinWidth: vgMin
+			variableGrade_MaxWidth: vgMax,
+			variableGrade_MinWidth: vgMin
 		} = block;
 
 		const width = container === "self" ? calculateElementWidth(element) : calculateElementWidth(element.parentNode);

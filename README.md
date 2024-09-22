@@ -91,18 +91,18 @@ You can also see Textblock in action at [Textblock.io](https://textblock.io).
 -   **`target`** (required): The CSS selector for the element that should be resized, e.g., `".your-class"`, `"#some-id p"`.
 -   **`minWidth`**: The minimum container width. Default: `320`.
 -   **`maxWidth`**: The maximum container width. Default: `960`.
--   **`fontSizeMinWidth`**: The font size at the minimum width. Default: `1.0`.
--   **`fontSizeMaxWidth`**: The font size at the maximum width. Default: `1.8`.
--   **`lineHeightMinWidth`**: The line height at the minimum width (unitless). Default: `1.33`.
--   **`lineHeightMaxWidth`**: The line height at the maximum width (unitless). Default: `1.25`.
--   **`variableGradeMinWidth`**: The font weight (for variable fonts) at the minimum width, e.g., `450`.
--   **`variableGradeMaxWidth`**: The font weight at the maximum width, e.g., `400`.
+-   **`fontSize_MinWidth`**: The font size at the minimum width. Default: `1.0`.
+-   **`fontSize_MaxWidth`**: The font size at the maximum width. Default: `1.8`.
+-   **`lineHeight_MinWidth`**: The line height at the minimum width (unitless). Default: `1.33`.
+-   **`lineHeight_MaxWidth`**: The line height at the maximum width (unitless). Default: `1.25`.
+-   **`variableGrade_MinWidth`**: The font weight (for variable fonts) at the minimum width, e.g., `450`.
+-   **`variableGrade_MaxWidth`**: The font weight at the maximum width, e.g., `400`.
 -   **`container`**: Determines whether the element's own width (`"self"`) or its parent container's width (`"parent"`) is used. Default: `"parent"`.
--   **`fontSizeUnits`**: The units for font size, e.g., `"em"`, `"px"`, `"rem"`. Default: `"em"`.
+-   **`fontSize_Units`**: The units for font size, e.g., `"em"`, `"px"`, `"rem"`. Default: `"em"`.
 
 For a better sense of context, set your root em to `10px` with `html { font-size: 62.5%; }`. This makes your em units base 10 so `2.4em` = `24px`. But any number will do because once you start adjusting the min/max numbers, the experience is more visual than calculated. And if you prefer a more scientific approach, Textblock gives you the control you need for setting systems like modular scales.
 
-If you’re using variable fonts, the `variableGradeMinWidth` / `variableGradeMaxWidth` parameters provide a way to simulate grades (micro-variations in weight to set smaller sizes slightly bolder).
+If you’re using variable fonts, the `variableGrade_MinWidth` / `variableGrade_MaxWidth` parameters provide a way to simulate grades (micro-variations in weight to set smaller sizes slightly bolder).
 
 ### Example
 
@@ -111,14 +111,14 @@ Textblock([{
  target: ".some-class",
  minWidth: 280,
  maxWidth: 800,
- fontSizeMinWidth: 1.9,
- fontSizeMaxWidth: 2.6,
- lineHeightMinWidth: 1.33,
- lineHeightMaxWidth: 1.25,
- variableGradeMinWidth: 366,
- variableGradeMaxWidth: 300,
+ fontSize_MinWidth: 1.9,
+ fontSize_MaxWidth: 2.6,
+ lineHeight_MinWidth: 1.33,
+ lineHeight_MaxWidth: 1.25,
+ variableGrade_MinWidth: 366,
+ variableGrade_MaxWidth: 300,
  container: "self",
- fontSizeUnits: "rem"
+ fontSize_Units: "rem"
 }]);
 ```
 
@@ -128,15 +128,15 @@ Textblock([{
 Textblock([
  {
   target: ".some-class",
-  fontSizeMinWidth: 1.9,
-  fontSizeMaxWidth: 2.6
+  fontSize_MinWidth: 1.9,
+  fontSize_MaxWidth: 2.6
  },
  {
   target: ".another-class",
-  fontSizeMinWidth: 2.4,
-  fontSizeMaxWidth: 3.6,
-  variableGradeMinWidth: 450,
-  variableGradeMaxWidth: 400,
+  fontSize_MinWidth: 2.4,
+  fontSize_MaxWidth: 3.6,
+  variableGrade_MinWidth: 450,
+  variableGrade_MaxWidth: 400,
   container: "self"
  }
 ]);
