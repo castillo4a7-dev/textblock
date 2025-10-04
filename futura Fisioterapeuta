@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisioterapia - Mi Futuro Profesional</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #eafaf8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #3cbfae;
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2b8c7b;
+            border-left: 5px solid #3cbfae;
+            padding-left: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 550px;
+            display: block;
+            margin: 25px auto;
+            border-radius: 12px;
+        }
+
+        footer {
+            background-color: #2b8c7b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Futuro: Fisioterapeuta</h1>
+        <p>Una carrera dedicada a la salud y el bienestar físico</p>
+    </header>
+
+    <section>
+        <h2>¿Por qué quiero ser fisioterapeuta?</h2>
+        <p>Desde pequeña siempre me ha interesado ayudar a las personas a mejorar su salud y bienestar. La fisioterapia me permitirá acompañar a quienes necesiten recuperar su movilidad, aliviar el dolor y sentirse mejor física y emocionalmente.</p>
+
+        <img src="https://www.unir.net/wp-content/uploads/2022/07/que-es-la-fisioterapia.jpg" alt="Fisioterapia">
+
+        <h2>¿Qué hace un fisioterapeuta?</h2>
+        <p>Un fisioterapeuta se encarga de prevenir, tratar y rehabilitar lesiones musculares, óseas y nerviosas mediante ejercicios, masajes y técnicas especializadas. Además, fomenta hábitos saludables para mantener una vida activa y equilibrada.</p>
+
+        <h2>Mi objetivo profesional</h2>
+        <p>Mi meta es convertirme en una fisioterapeuta profesional, empática y comprometida, que ayude a mejorar la calidad de vida de cada paciente y contribuya al bienestar de mi comunidad.</p>
+    </section>
+
+    <footer>
+        <p>Diseñado por <strong>Andrea</strong> | Correo: <a href="mailto:andrea@gmail.com">andrea@gmail.com</a></p>
+    </footer>
+
+</body>
+</html>
